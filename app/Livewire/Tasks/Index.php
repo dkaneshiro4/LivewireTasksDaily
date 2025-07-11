@@ -12,6 +12,8 @@ class Index extends Component
         Task::where('id', $id)->delete();
 
         session()->flash('success', 'Task successfully deleted.');
+
+        $this->redirectRoute('tasks.index', navigate: true);
     }
 
     public function render()
