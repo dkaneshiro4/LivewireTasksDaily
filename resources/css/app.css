@@ -64,3 +64,7 @@ select:focus[data-flux-control] {
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */
+
+[data-current] {
+   @apply bg-[oklch(0.846_0.076_269.861/0.19)] after:bg-blue-600 dark:bg-[oklch(0.269_0_0)];
+}
