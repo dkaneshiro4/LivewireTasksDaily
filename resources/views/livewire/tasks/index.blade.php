@@ -14,6 +14,9 @@
                     Status
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Due date
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Actions
                 </th>
             </tr>
@@ -25,12 +28,15 @@
                         {{ $task->name }}
                     </th>
                     <td class="px-6 py-4">
-                <span @class([
-                    'text-green-600' => $task->is_completed,
-                    'text-red-700' => ! $task->is_completed,
-                ])>
-                    {{ $task->is_completed ? 'Completed' : 'In progress' }}
-                </span>
+                        <span @class([
+                            'text-green-600' => $task->is_completed,
+                            'text-red-700' => ! $task->is_completed,
+                        ])>
+                            {{ $task->is_completed ? 'Completed' : 'In progress' }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $task->due_date?->format('M d, Y') }}
                     </td>
                     <td class="px-6 py-4 space-x-2">
                         <flux:button href="{{ route('tasks.edit', $task) }}" variant="filled">{{ __('Edit') }}</flux:button>

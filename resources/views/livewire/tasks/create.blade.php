@@ -6,6 +6,11 @@
             required
             badge="required"
         />
+        <flux:input
+            wire:model="due_date"
+            type="date"
+            :label="__('Due Date')"
+        />
 
         <div>
             <flux:button variant="primary" type="submit">{{ __('Save') }}</flux:button>

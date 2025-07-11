@@ -12,12 +12,16 @@ class Create extends Component
     #[Validate('required|string|max:255')]
     public string $name = '';
 
+    #[Validate('nullable|date')]
+    public null|string $due_date = null;
+
     public function save(): void
     {
         $this->validate();
 
         Task::create([
             'name' => $this->name,
+            'due_date' => $this->due_date,
         ]);
 
         session()->flash('success', 'Task successfully created.');
